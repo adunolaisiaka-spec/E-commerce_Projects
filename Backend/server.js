@@ -3,6 +3,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
@@ -20,7 +21,7 @@ import cookieParser from 'cookie-parser';
 const app =express();
 const PORT = process.env.PORT;
 
-const __dirname = path.resolve();
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 app.use(express.json({ limit: "10mb" })); // allow you to parse the body of the request
 app.use(cookieParser()); //allow you to parse the cookies in the request
