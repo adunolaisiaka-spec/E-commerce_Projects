@@ -42,7 +42,7 @@ app.use('/api/analytics', analyticsRoutes);
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../Frontend/dist')));
 
-    app.get('*', (req, res) => {
+    app.get('/*splat', (req, res) => {
         res.sendFile(path.resolve(__dirname, '..', 'Frontend', 'dist', 'index.html'));
     });
 }
